@@ -1,1 +1,1 @@
-# contacts-manager-app
+# contact-manager-app
