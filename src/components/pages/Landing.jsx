@@ -1,6 +1,6 @@
 import React from 'react'
-// import About from './About'
 import Input from './Input'
+// import About from './About'
 
 export default function Landing() {
   return (
