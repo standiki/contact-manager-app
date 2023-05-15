@@ -1,1 +1,165 @@
-/* write styles here */
+/*
+================
+Variables 
+================
+*/
+
+:root {
+    --clr-gold: hsl(36, 47%, 57%);
+    --clr-faint: hsl(0, 0%, 100%, .5);
+    --clr-white: #fff;
+    --clr-grey: hsl(210, 22%, 49%);
+    --clr-dark: #212529;
+    --spacing: 0.1rem;
+    --radius: 0.25rem;
+}
+
+/*
+* Space between all pages and the header: margin-bottom: 1rem !important;
+* Color for sub-lead text: color: #6c757d !important;
+* Media Screen:
+@media (min-width: 576px) {
+.container,
+.container-sm {
+    max-width: 540px;
+}
+}
+*/
+
+/*
+================
+Generic Styles
+================
+*/
+
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--clr-white);
+    color: var(--clr-dark);
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+
+/* main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/*
+================
+About page
+================
+*/
+
+.about h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+.about h1, .lead {
+    font-weight: 300;
+}
+
+.about .lead {
+    font-size: 1.25rem;
+}
+
+.about p {
+    color: var(--clr-grey);
+}
+
+/*
+================
+Home page
+================
+*/
+
+/*
+================
+Input page
+================
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+================
+Header
+================
+*/
+
+/*
+================
+ Navbar
+================
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
