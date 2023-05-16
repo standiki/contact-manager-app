@@ -29,6 +29,16 @@ export default function Input() {
                   placeholder='Enter Phone' 
                 />
               </div>
+              <div className='form-control'>
+                <label htmlFor="phone">Address</label>
+                <input 
+                  type='text' 
+                  name='address' 
+                  id='address' 
+                  className='control control-lg'
+                  placeholder='Enter Address' 
+                />
+              </div>
               <input 
                 type='submit'
                 className='btn btn-light btn-block'
