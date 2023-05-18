@@ -7,6 +7,7 @@ Variables
 :root {
     --clr-gold: hsl(36, 47%, 57%);
     --clr-faint: hsl(0, 0%, 100%, .5);
+    --clr-faded-white: hsl(0, 0%, 100%, .5);
     --clr-white: #fff;
     --clr-grey: hsl(210, 22%, 49%);
     --clr-dark: #212529;
@@ -32,19 +33,20 @@ Generic Styles
 ================
 */
 
-::after,
-::before {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
     background: var(--clr-white);
     color: var(--clr-dark);
-    line-height: 1.5;
-    font-size: 1rem;
+    text-align: left;
 }
 
 h1,
@@ -57,43 +59,69 @@ h4 {
     margin-bottom: 0.75rem;
 }
 
-/* main {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+ul {
+    list-style: none;
+}
 
-.container {
-    width: 90vw;
-    /* margin: 5rem auto; */
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+a {
+    text-decoration: none;
+}
+
+main {
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 /*
 ================
-About page
+Header
 ================
 */
 
-.about h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
+.navbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--clr-gold);
+    color: var(--clr-white);
+    padding: 30px;
 }
 
-.about h1, .lead {
-    font-weight: 300;
-}
-
-.about .lead {
+.navbar-brand {
+    display: inline-block;
     font-size: 1.25rem;
+    font-weight: inherit;
+    line-height: inherit;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
-.about p {
-    color: var(--clr-grey);
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.nav-link {
+    color: var(--clr-faded-white);
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: var(--clr-white);
+    transition: ;
+}
+
+.nav-icon {
+    margin-right: 0.15rem;
 }
 
 /*
@@ -117,7 +145,7 @@ Input page
     background-color: var(--clr-white);
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: 0.25rem;
+    border-radius: var(--radius);
 }
 
 .card-header {
@@ -167,7 +195,8 @@ label {
     border-radius: 0.3rem;
 }
 
-input, button {
+input,
+button {
     overflow: visible;
 }
 
@@ -177,7 +206,8 @@ input {
     font-family: inherit;
 }
 
-input[type=submit], .btn-block {
+input[type=submit],
+.btn-block {
     width: 100%;
 }
 
@@ -212,57 +242,25 @@ input[type='submit' i] {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 ================
-Header
+About page
 ================
 */
 
-/*
-================
- Navbar
-================
-*/
+.about h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
 
+.about h1, .lead {
+    font-weight: 300;
+}
 
+.about .lead {
+    font-size: 1.25rem;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.about p {
+    color: var(--clr-grey);
+}

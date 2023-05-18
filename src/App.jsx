@@ -3,7 +3,7 @@ import Landing from './components/pages/Landing'
 
 export default function App() {
   return (
-    <main>
+    <main className='main'>
       <Landing />
     </main>
   )

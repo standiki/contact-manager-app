@@ -1,10 +1,26 @@
 import React from 'react'
-import Navbar from './Navbar'
+import { FaHome, FaPlus, FaQuestion } from 'react-icons/fa';
 
 export default function Header() {
   return (
-    <header className='header'>
-        <Navbar />
-    </header>
+    <nav className='navbar'>
+      <h4 className='navbar-brand'>stanley's contact manager</h4>
+      <div>
+        <ul className='navbar-nav'>
+          <li className='nav-link'>
+            <FaHome className='nav-icon' />
+            Home
+          </li>
+          <li className='nav-link'>
+            <FaPlus className='nav-icon' />
+            Add
+          </li>
+          <li className='nav-link'>
+            <FaQuestion className='nav-icon' />
+            About
+          </li>
+        </ul>
+      </div>
+    </nav>
   )
 }
