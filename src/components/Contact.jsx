@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaChevronDown, FaChevronUp, FaPencilAlt, FaTimes } from 'react-icons/fa'
 
 export default function Contact({ id, name, phone, removeContact }) {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = React.useState(false);
   
   return (
     <div className='contact'>

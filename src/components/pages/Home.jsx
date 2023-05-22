@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Contact from '../Contact';
 
 import contactsData from '../../components/contacts'
 
 export default function Home() {
-  const [contacts, setContacts] = useState(contactsData);
+  const [contacts, setContacts] = React.useState(contactsData);
 
   function removeContact(id) {
     const newConctacts = contacts.filter((contact) => contact.id !== id)

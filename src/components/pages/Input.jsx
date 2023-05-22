@@ -1,6 +1,24 @@
 import React from 'react'
 
 export default function Input() {
+  const [contact, setContact] = React.useState({
+    contactName: '',
+    contactPhone: '',
+    contactAddress: ''
+  });
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setContact((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value
+      }
+    })
+  }
+
+  // console.log(contact)
+
   return (
     <div className='container'>
       <div className='card mb-3'>
@@ -10,8 +28,10 @@ export default function Input() {
               <div className='form-control'>
                 <label htmlFor="name">Name</label>
                 <input 
+                  onChange={handleInputChange}
                   type='text'
-                  name='name'
+                  name='contactName'
+                  value={contact.contactName}
                   id='name'
                   className='control control-lg'
                   placeholder='Enter Name'
@@ -20,8 +40,10 @@ export default function Input() {
               <div className='form-control'>
                 <label htmlFor="phone">Phone</label>
                 <input 
+                  onChange={handleInputChange}
                   type='text' 
-                  name='phone' 
+                  name='contactPhone' 
+                  value={contact.contactPhone}
                   id='phone' 
                   className='control control-lg'
                   placeholder='Enter Phone' 
@@ -30,16 +52,19 @@ export default function Input() {
               <div className='form-control'>
                 <label htmlFor="phone">Address</label>
                 <input 
+                  onChange={handleInputChange}
                   type='text' 
-                  name='address' 
+                  name='contactAddress' 
+                  value={contact.contactAddress}
                   id='address' 
                   className='control control-lg'
                   placeholder='Enter Address' 
                 />
               </div>
               <input 
+                onChange={handleInputChange}
                 type='submit'
-                className='btn btn-light btn-block'
+                className='btn btn-light btn-blo'
                 value='Add Contact' 
               />
             </form>
