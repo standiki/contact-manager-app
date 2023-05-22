@@ -3,10 +3,8 @@ import React from 'react'
 export default function Input() {
   return (
     <div className='container'>
-      <div className='card'>
-        <div className='card-header'>
-          <h4>add contact</h4>
-        </div>
+      <div className='card mb-3'>
+        <div className='card-header'>add contact</div>
           <div className='card-body'>
             <form>
               <div className='form-control'>

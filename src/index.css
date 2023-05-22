@@ -15,8 +15,11 @@ Variables
     --spacing: 0.1rem;
     --radius: 0.25rem;
     --border-clr: rgba(0, 0, 0, 0.125);
+    --bg-off-white: rgba(0, 0, 0, .03);
     --mb-3: 1rem;
     --mb-2: 0.5rem;
+    --py-0: 0;
+    --transition: .15s ease-in-out;
 }
 
 /*
@@ -80,16 +83,21 @@ main {
 
 .container {
     width: 100%;
-    padding: 0px 15px;
+    padding: 0px 65px;
     margin: 0 auto;
 }
 
 .mb-2 {
-    margin-bottom: var(--mb-2);
+    margin-bottom: var(--mb-2) !important ;
 }
 
 .mb-3 {
-    margin-bottom: var(--mb-3);
+    margin-bottom: var(--mb-3) !important;
+}
+
+.py-0 {
+    padding-bottom: var(--py-0) !important;
+    padding-top: var(--py-0) !important;
 }
 
 /*
@@ -102,6 +110,7 @@ Header
     width: 100%;
     height: 60px;
     display: flex;
+    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: space-between;
     background: var(--clr-gold);
@@ -225,7 +234,7 @@ Input page
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background: var(--clr-white-rgb);
+    background-color: var(--clr-white-rgb);
     background-clip: border-box;
     border: 1px solid var(--border-clr);
     border-radius: var(--radius);
@@ -234,9 +243,13 @@ Input page
 .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
-    background-color: rgba(0, 0, 0, .03);
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
-    /* border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0; */
+    background-color: var(--bg-off-white);
+    border-bottom: 1px solid var(--border-clr);
+    text-transform: capitalize;
+}
+
+.card-header:first-child{
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
 
 .card-body {
@@ -257,19 +270,18 @@ form {
 label {
     display: inline-block;
     margin-bottom: 0.5rem;
+    cursor: default;
 }
 
 .control {
     display: block;
-    width: 97%;
+    width: 100%;
     font-weight: 400;
     color: #495057;
-    background: var(--clr-white);
+    background-color: var(--clr-white);
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    /* transition: .15s ease-in-out;
-    border-color:hsl(36, 47%, 57%);
-    box-shadow: .15s ease-in-out; */
+    transition: var(--transition);
 }
 
 .control-lg {
@@ -310,8 +322,19 @@ input[type='submit' i] {
 
 .btn-light {
     color: #212529;
-    background: #f8f9fa;
+    background-color: #f8f9fa;
     border-color: #f8f9fa;
+}
+
+.btn-light:hover {
+    color: #212529;
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    text-decoration: none;
 }
 
 .btn {
@@ -324,7 +347,6 @@ input[type='submit' i] {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 /*

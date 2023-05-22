@@ -3,7 +3,7 @@ import { FaHome, FaPlus, FaQuestion } from 'react-icons/fa';
 
 export default function Header() {
   return (
-    <nav className='navbar container'>
+    <nav className='navbar container mb-3 py-0'>
       <h4 className='navbar-brand'>stanley's contact manager</h4>
       <div>
         <ul className='navbar-nav'>
