@@ -148,14 +148,14 @@ Home page
 ================
 */
 
-.main h1 {
+.home h1 {
     font-size: 3.5rem;
     line-height: 1.2;
     font-weight: 300;
 }
 
-.main .text-gold {
-    color: var(--clr-gold);
+.home .text-gold {
+    color: var(--clr-gold) !important;
 }
 
 .landing .card h4 {
@@ -166,7 +166,7 @@ Home page
     line-height: 1.2;
 }
 
-.card-items {
+.card-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
