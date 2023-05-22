@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { FaChevronDown, FaChevronUp, FaPencilAlt, FaTimes } from 'react-icons/fa'
 
 export default function Contact({ id, name, phone, removeContact }) {
-    const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  
   return (
     <div className='contact'>
-        <div className='card card-body mb-3'>
+      <div className='card card-body mb-3'>
         <div className='card-item'>
           <div className='item'>
             <h4>{name}</h4>
