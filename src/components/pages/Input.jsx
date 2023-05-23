@@ -7,7 +7,7 @@ export default function Input() {
     contactAddress: ''
   });
 
-  function handleInputChange(event) {
+  function handleChange(event) {
     const { name, value } = event.target;
     setContact((prevFormData) => {
       return {
@@ -16,8 +16,6 @@ export default function Input() {
       }
     })
   }
-
-  // console.log(contact)
 
   return (
     <div className='container'>
@@ -28,7 +26,7 @@ export default function Input() {
               <div className='form-control'>
                 <label htmlFor="name">Name</label>
                 <input 
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   type='text'
                   name='contactName'
                   value={contact.contactName}
@@ -40,7 +38,7 @@ export default function Input() {
               <div className='form-control'>
                 <label htmlFor="phone">Phone</label>
                 <input 
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   type='text' 
                   name='contactPhone' 
                   value={contact.contactPhone}
@@ -52,7 +50,7 @@ export default function Input() {
               <div className='form-control'>
                 <label htmlFor="phone">Address</label>
                 <input 
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   type='text' 
                   name='contactAddress' 
                   value={contact.contactAddress}
@@ -62,7 +60,7 @@ export default function Input() {
                 />
               </div>
               <input 
-                onChange={handleInputChange}
+                onChange={handleChange}
                 type='submit'
                 className='btn btn-light btn-blo'
                 value='Add Contact' 
