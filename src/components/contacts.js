@@ -1,31 +1,31 @@
 export default [
     {
         id: 1,
-        name: 'Carlton Banks',
-        phone: '1234567890112322',
-        // address: 'IIford Lane, London, UK'
+        contactName: 'Carlton Banks',
+        contactPhone: '1234567890112322',
+        // contactAddress: 'IIford Lane, London, UK'
     },
     {
         id: 2,
-        name: 'Kyle Dallas',
-        phone: '1234567890112322',
-        // address: 'IIford Lane, London, UK'
+        contactName: 'Kyle Dallas',
+        contactPhone: '1234567890112322',
+        // contactAddress: 'IIford Lane, London, UK'
     },
     {   id: 3,
-        name: 'Will Smith',
-        phone: '1234567890112322',
-        // address: 'IIford Lane, London, UK'
+        contactName: 'Will Smith',
+        contactPhone: '1234567890112322',
+        // contactAddress: 'IIford Lane, London, UK'
     },
     {
         id: 5,
-        name: 'Barack Obama',
-        phone: '1234567890112322',
-        // address: 'IIford Lane, London, UK'
+        contactName: 'Barack Obama',
+        contactPhone: '1234567890112322',
+        // contactAddress: 'IIford Lane, London, UK'
     },
     {   
         id: 6,
-        name: 'Angie Jones',
-        phone: '1234567890112322',
-        // address: 'IIford Lane, London, UK'
+        contactName: 'Angie Jones',
+        contactPhone: '1234567890112322',
+        // contactAddress: 'IIford Lane, London, UK'
     },
 ]

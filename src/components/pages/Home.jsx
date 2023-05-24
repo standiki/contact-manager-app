@@ -1,16 +1,7 @@
 import React from 'react';
 import Contact from '../Contact';
 
-import contactsData from '../../components/contacts'
-
-export default function Home() {
-  const [contacts, setContacts] = React.useState(contactsData);
-
-  function removeContact(id) {
-    const newConctacts = contacts.filter((contact) => contact.id !== id)
-    setContacts(newConctacts);
-  }
-
+export default function Home({ contacts, removeContact }) {
   return (
     <div className='home'>
       <section className='container'>

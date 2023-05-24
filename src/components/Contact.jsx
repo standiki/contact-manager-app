@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaChevronDown, FaChevronUp, FaPencilAlt, FaTimes } from 'react-icons/fa'
 
-export default function Contact({ id, name, phone, removeContact }) {
+export default function Contact({ id, contactName, contactPhone, removeContact }) {
   const [isActive, setIsActive] = React.useState(false);
   
   return (
@@ -9,7 +9,7 @@ export default function Contact({ id, name, phone, removeContact }) {
       <div className='card card-body mb-3'>
         <div className='card-item'>
           <div className='item'>
-            <h4>{name}</h4>
+            <h4>{contactName}</h4>
             <i
               className='fa-icon'
               onClick={() => 
@@ -34,7 +34,7 @@ export default function Contact({ id, name, phone, removeContact }) {
           </div>
         </div>
         <ul className='list-group'>
-          {isActive && <li className='list-group-item'>Phone: {phone}</li>}
+          {isActive && <li className='list-group-item'>Phone: {contactPhone}</li>}
         </ul>
       </div>
     </div>

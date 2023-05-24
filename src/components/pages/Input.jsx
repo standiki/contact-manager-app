@@ -1,21 +1,6 @@
 import React from 'react'
 
-export default function Input() {
-  const [contact, setContact] = React.useState({
-    contactName: '',
-    contactPhone: '',
-    contactAddress: ''
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setContact((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: value
-      }
-    })
-  }
+export default function Input({ formData, handleSubmit, handleChange }) {
 
   return (
     <div className='container'>
@@ -29,7 +14,7 @@ export default function Input() {
                   onChange={handleChange}
                   type='text'
                   name='contactName'
-                  value={contact.contactName}
+                  value={formData.contactName}
                   id='name'
                   className='control control-lg'
                   placeholder='Enter Name'
@@ -41,7 +26,7 @@ export default function Input() {
                   onChange={handleChange}
                   type='text' 
                   name='contactPhone' 
-                  value={contact.contactPhone}
+                  value={formData.contactPhone}
                   id='phone' 
                   className='control control-lg'
                   placeholder='Enter Phone' 
@@ -53,14 +38,14 @@ export default function Input() {
                   onChange={handleChange}
                   type='text' 
                   name='contactAddress' 
-                  value={contact.contactAddress}
+                  value={formData.contactAddress}
                   id='address' 
                   className='control control-lg'
                   placeholder='Enter Address' 
                 />
               </div>
               <input 
-                onChange={handleChange}
+                onClick={handleSubmit}
                 type='submit'
                 className='btn btn-light btn-blo'
                 value='Add Contact' 
