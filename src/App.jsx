@@ -1,28 +1,28 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
-import Contact from './components/Contact';
+import Landing from './components/pages/Landing';
 import Input from './components/pages/Input';
+import About from './components/pages/About';
 
-import contactData from './components/contacts';
-// import { reducer } from './components/reducer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { nanoid } from 'nanoid';
+
+import data from './components/contacts';
 
 export default function App() {
-  const [contact, setContact] = useState(contactData); 
-  const [formData, setFormData] = React.useState({
+  const [contact, setContact] = useState(data);
+  const [formData, setFormData] = useState({
     contactName: '',
     contactPhone: '',
     contactAddress: ''
-});
-  
-// const [state, dispatch] = useReducer(reducer, contactData);
-
-// console.log(state);
+  });
 
   function handleSubmit(event) {
     event.preventDefault()
     const {contactName: name, contactPhone: phone, contactAddress: address } = formData;
     if (name && phone && address) {
-      const newContact = {...formData, id: new Date().getDate().toLocaleString()}
+      const newContact = {...formData, id: nanoid()}
       setContact([newContact, ...contact]);
       setFormData({
         contactName: '',
@@ -32,43 +32,42 @@ export default function App() {
     } else {
       console.log('Empty values')
     }
-};
+  };
 
-function handleChange(event) {
-  const { name, value } = event.target;
-  setFormData((prevFormData) => {
-    return {
-      ...prevFormData,
-      [name]: value
-    }
-  });
-};
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value
+      }
+    });
+  };
 
   function removeContact(id) {
     const filteredContact = contact.filter((contact) => contact.id !== id)
     setContact(filteredContact);
-}
+  }
 
   return (
-    <main className='main'>
+    <Router>
       <Header />
-      <Input 
-        formData={formData} 
-        handleSubmit={handleSubmit}
-        handleChange={handleChange} 
-      />
-      <section className='container'>
-        <h1><span className='text-gold mb-2'>contact</span> list</h1>
-        {contact.map((contact) => {
-          return (
-            <Contact 
-              key={contact.id} 
-              {...contact}
-              removeContact={removeContact}
-            />
-          )
-        })}
-      </section>
-    </main>
+      <Routes>
+        <Route path='/' element={
+          <Landing 
+            contacts={contact} 
+            removeContact={removeContact}
+          />}
+        />
+        <Route path='/input' element={
+          <Input 
+            formData={formData} 
+            handleSubmit={handleSubmit}
+            handleChange={handleChange} 
+          />} 
+        />
+        <Route path='/about' element={<About />}/>
+      </Routes>
+    </Router>
   )
 }

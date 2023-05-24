@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaChevronDown, FaChevronUp, FaPencilAlt, FaTimes } from 'react-icons/fa'
 
-export default function Contact({ id, contactName, contactPhone, removeContact }) {
+export default function Contact({ id, contactName, contactPhone, removeContact, contactAddress }) {
   const [isActive, setIsActive] = React.useState(false);
   
   return (
@@ -35,6 +35,7 @@ export default function Contact({ id, contactName, contactPhone, removeContact }
         </div>
         <ul className='list-group'>
           {isActive && <li className='list-group-item'>Phone: {contactPhone}</li>}
+          {isActive && <li className='list-group-item'>Address: {contactAddress}</li>}
         </ul>
       </div>
     </div>

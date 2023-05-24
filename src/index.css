@@ -100,6 +100,10 @@ main {
     padding-top: var(--py-0) !important;
 }
 
+ .text-gold {
+     color: var(--clr-gold) !important;
+ }
+
 /*
 ================
 Header
@@ -123,6 +127,7 @@ Header
     font-weight: inherit;
     line-height: inherit;
     white-space: nowrap;
+    color: var(--clr-white);
     cursor: pointer;
 }
 
@@ -134,7 +139,7 @@ Header
     margin-bottom: 0.4rem;
 }
 
-.nav-link {
+.nav-link > .link {
     color: var(--clr-faded-white);
     display: flex;
     align-items: center;
@@ -142,7 +147,7 @@ Header
     cursor: pointer;
 }
 
-.nav-link:hover {
+.nav-link > .link:hover {
     color: var(--clr-white);
     transition: .15s ease-in-out;
 }
@@ -157,23 +162,19 @@ Home page
 ================
 */
 
-.home h1 {
+.landing > .container h1 {
     font-size: 3.5rem;
     line-height: 1.2;
     font-weight: 300;
 }
 
-.home .text-gold {
-    color: var(--clr-gold) !important;
-}
-
-.landing .card h4 {
+/* .landing .card h4 {
     margin-bottom: 0.5rem;
     margin-top: 0px;
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.2;
-}
+} */
 
 .card-item {
     display: flex;
@@ -206,6 +207,7 @@ Home page
 .list-group {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
     padding-left: 0px;
     margin-bottom: 0px;
 }
@@ -355,19 +357,48 @@ About page
 ================
 */
 
-.about h1 {
+.about-container h1 {
     font-size: 3.5rem;
     line-height: 1.2;
 }
 
-.about h1, .lead {
+.about-container h1, .lead {
     font-weight: 300;
 }
 
-.about .lead {
+.about-container .lead {
     font-size: 1.25rem;
 }
 
-.about p {
+.about-container p {
     color: var(--clr-grey);
 }
+
+.version {
+    text-transform: capitalize;
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
