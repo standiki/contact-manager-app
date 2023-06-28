@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function Input({ formData, handleSubmit, handleChange }) {
+export default function AddContact({ formData, handleSubmit, handleChange }) {
   return (
     <div className="container">
       <div className="card mb-3">
@@ -12,8 +10,8 @@ export default function Input({ formData, handleSubmit, handleChange }) {
               <input
                 onChange={handleChange}
                 type="text"
-                name="contactName"
-                value={formData.contactName}
+                name="name"
+                value={formData.name}
                 id="name"
                 className="control control-lg"
                 placeholder="Enter Name"
@@ -24,20 +22,20 @@ export default function Input({ formData, handleSubmit, handleChange }) {
               <input
                 onChange={handleChange}
                 type="text"
-                name="contactPhone"
-                value={formData.contactPhone}
+                name="phone"
+                value={formData.phone}
                 id="phone"
                 className="control control-lg"
                 placeholder="Enter Phone"
               />
             </div>
             <div className="form-control">
-              <label htmlFor="phone">Address</label>
+              <label htmlFor="address">Address</label>
               <input
                 onChange={handleChange}
                 type="text"
-                name="contactAddress"
-                value={formData.contactAddress}
+                name="address"
+                value={formData.address}
                 id="address"
                 className="control control-lg"
                 placeholder="Enter Address"

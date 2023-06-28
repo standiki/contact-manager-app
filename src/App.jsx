@@ -1,73 +1,143 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import Landing from './components/pages/Landing';
-import Input from './components/pages/Input';
-import About from './components/pages/About';
+import React, { useState } from "react";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// components
+import Header from "./components/Header";
+import Landing from "./components/pages/Landing";
+import AddContact from "./components/pages/AddContact";
+import EditContact from "./components/pages/EditContact";
+import About from "./components/pages/About";
 
-import { nanoid } from 'nanoid';
+// dependencies
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { nanoid } from "nanoid";
 
-import data from './components/contacts';
+// initial contact data
+import data from "./components/contacts";
 
 export default function App() {
-  const [contact, setContact] = useState(data);
+  const [contacts, setContacts] = useState(data);
   const [formData, setFormData] = useState({
-    contactName: '',
-    contactPhone: '',
-    contactAddress: ''
+    name: "",
+    phone: "",
+    address: "",
   });
 
+  const navigate = useNavigate();
+
+  // adds new contact
   function handleSubmit(event) {
-    event.preventDefault()
-    const {contactName: name, contactPhone: phone, contactAddress: address } = formData;
+    event.preventDefault();
+    const { name, phone, address } = formData;
     if (name && phone && address) {
-      const newContact = {...formData, id: nanoid()}
-      setContact([newContact, ...contact]);
+      const newContact = { ...formData, id: nanoid() };
+      setContacts([newContact, ...contacts]);
+
+      // clear inputs
       setFormData({
-        contactName: '',
-        contactPhone: '',
-        contactAddress: ''
+        name: "",
+        phone: "",
+        address: "",
       });
     } else {
-      console.log('Empty values')
+      console.log("Empty values");
     }
-  };
+    navigate("/");
+  }
+
+  // updates edited contact
+  function updContact(id, event) {
+    event.preventDefault();
+    setContacts((prevContacts) => {
+      const { name, phone, address } = formData;
+      if (name && phone && address) {
+        return prevContacts.map((contact) => {
+          return contact.id === parseInt(id)
+            ? { ...contact, name, phone, address }
+            : contact.id === id
+            ? { ...contact, name, phone, address }
+            : contact;
+        });
+      } else {
+        console.log("Empty values");
+      }
+    });
+    // clear inputs
+    setFormData({
+      name: "",
+      phone: "",
+      address: "",
+    });
+    navigate("/");
+  }
+
+  // match selected contact for editing
+  function findContact(id) {
+    return contacts.find((contact) => {
+      const { name, phone, address } = contact;
+      return contact.id === parseInt(id)
+        ? setFormData({
+            name: name,
+            phone: phone,
+            address: address,
+          })
+        : contact.id === id
+        ? setFormData({
+            name: name,
+            phone: phone,
+            address: address,
+          })
+        : undefined;
+    });
+  }
 
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]: value
-      }
+        [name]: value,
+      };
     });
-  };
+  }
 
   function removeContact(id) {
-    const filteredContact = contact.filter((contact) => contact.id !== id)
-    setContact(filteredContact);
+    const filteredContact = contacts.filter((contact) => contact.id !== id);
+    setContacts(filteredContact);
   }
 
   return (
-    <Router>
+    <>
       <Header />
       <Routes>
-        <Route path='/' element={
-          <Landing 
-            contacts={contact} 
-            removeContact={removeContact}
-          />}
+        <Route
+          path="/"
+          element={
+            <Landing contacts={contacts} removeContact={removeContact} />
+          }
         />
-        <Route path='/input' element={
-          <Input 
-            formData={formData} 
-            handleSubmit={handleSubmit}
-            handleChange={handleChange} 
-          />} 
+        <Route
+          path="/add"
+          element={
+            <AddContact
+              formData={formData}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+            />
+          }
         />
-        <Route path='/about' element={<About />}/>
+        <Route
+          path="/contact/edit/:id"
+          element={
+            <EditContact
+              handleChange={handleChange}
+              formData={formData}
+              findContact={findContact}
+              updContact={updContact}
+            />
+          }
+        />
+        <Route path="/about" element={<About />} />
       </Routes>
-    </Router>
-  )
+    </>
+  );
 }
